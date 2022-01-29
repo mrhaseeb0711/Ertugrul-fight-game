@@ -49,7 +49,7 @@ restart_img = pygame.image.load('img/Icons/r2.png').convert_alpha()
 victory_img = pygame.image.load('img/Icons/v2.png').convert_alpha()
 defeat_img = pygame.image.load('img/Icons/d4.png').convert_alpha()
 #sword image
-sword_img = pygame.image.load('img/Icons/sword.png').convert_alpha()
+sword_img = pygame.image.load('img/Icons/sword3.png').convert_alpha()
 
 
 #create function for drawing text
