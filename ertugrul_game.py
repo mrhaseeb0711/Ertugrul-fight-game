@@ -47,7 +47,7 @@ panel_img = pygame.image.load('img/Icons/pan2.png').convert_alpha()
 potion_img = pygame.image.load('img/Icons/p1.png').convert_alpha()
 restart_img = pygame.image.load('img/Icons/r2.png').convert_alpha()
 #load victory and defeat images
-victory_img = pygame.image.load('img/Icons/v2.png').convert_alpha()
+victory_img = pygame.image.load('img/Icons/vic2.png').convert_alpha()
 defeat_img = pygame.image.load('img/Icons/d4.png').convert_alpha()
 #sword image
 sword_img = pygame.image.load('img/Icons/s3.png').convert_alpha()
@@ -97,7 +97,8 @@ class Fighter():
 		self.alive = True
 		self.animation_list = []
 		self.frame_index = 0
-		self.action = 0#0:idle, 1:attack, 2:hurt, 3:dead
+		#0:idle, 1:attack, 2:hurt, 3:dead
+		self.action = 0
 		self.update_time = pygame.time.get_ticks()
 		#load idle images
 		temp_list = []
@@ -244,8 +245,8 @@ damage_text_group = pygame.sprite.Group()
 
 
 Ertugrul = Fighter(200, 260, 'Ertugrul',20 , 6, 3)
-Noyan = Fighter(550, 270, 'Enemy', 15, 6, 1)
-Titus = Fighter(700, 270, 'Enemy',15,6, 1)
+Noyan = Fighter(550, 270, 'Enemy', 15, 3, 0)
+Titus = Fighter(700, 270, 'Enemy',15,3, 0)
 
 Enemy_list = []
 Enemy_list.append(Noyan)
@@ -258,6 +259,8 @@ Titus_health_bar = HealthBar(550, screen_height - bottom_panel + 100, Titus.hp, 
 #create buttons
 potion_button = button.Button(screen, 100, screen_height - bottom_panel + 70, potion_img, 64, 64)
 restart_button = button.Button(screen, 330, 120, restart_img, 120, 30)
+
+#looping components
 
 run = True
 while run:
