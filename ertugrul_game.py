@@ -1,7 +1,8 @@
-from tokenize import Whitespace
+
 import pygame
 import random
 import button
+from pygame import mixer
 
 pygame.init()
 
@@ -14,7 +15,7 @@ screen_width = 800
 screen_height = 400 + bottom_panel
 
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption('Battle')
+pygame.display.set_caption('Ertugrul_game')
 
 
 #define game variables
@@ -49,7 +50,15 @@ restart_img = pygame.image.load('img/Icons/r2.png').convert_alpha()
 victory_img = pygame.image.load('img/Icons/v2.png').convert_alpha()
 defeat_img = pygame.image.load('img/Icons/d4.png').convert_alpha()
 #sword image
-sword_img = pygame.image.load('img/Icons/sword4.png').convert_alpha()
+sword_img = pygame.image.load('img/Icons/s3.png').convert_alpha()
+
+
+#backgrojund sound
+mixer.init()
+
+mixer.music.load("img/Background/bgsound.mp3")
+mixer.music.set_volume(0.7)
+mixer.music.play(-1)
 
 
 #create function for drawing text
@@ -234,9 +243,9 @@ class DamageText(pygame.sprite.Sprite):
 damage_text_group = pygame.sprite.Group()
 
 
-Ertugrul = Fighter(200, 260, 'Ertugrul', 5, 6, 3)
-Noyan = Fighter(550, 270, 'Enemy', 2, 6, 1)
-Titus = Fighter(700, 270, 'Enemy', 2, 6, 1)
+Ertugrul = Fighter(200, 260, 'Ertugrul',20 , 6, 3)
+Noyan = Fighter(550, 270, 'Enemy', 15, 6, 1)
+Titus = Fighter(700, 270, 'Enemy',15,6, 1)
 
 Enemy_list = []
 Enemy_list.append(Noyan)
@@ -254,9 +263,11 @@ run = True
 while run:
 
 	clock.tick(fps)
+	
 
 	#draw background
 	draw_bg()
+  
 
 	#draw panel
 	draw_panel()
